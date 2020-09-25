@@ -2,15 +2,9 @@ import React, {Component} from 'react';
 import '../styles/App.scss';
 import {Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
-import {
-	GENERATE_BUTTON,
-	LOCATION_OF_OWNER_OF_APP,
-	MADE_WITH,
-	NAME_SEPARATOR,
-	NAMES_ERROR_MSG,
-	WEBSITE_TITLE
-} from "../utils/constants";
+import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, NAMES_ERROR_MSG, WEBSITE_TITLE} from "../utils/constants";
 import ShowPairs from "./ShowPairs";
+import {generateUniquePairs, shuffle} from "./utils/generateHelper";
 
 const validation =
 	Yup.object().shape({
@@ -32,7 +26,8 @@ class Dashboard extends Component {
 			<main>
 				<div className="container-fluid">
 					<div className="row">
-						<div className="d-flex flex-column col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
+						<div
+							className="d-flex flex-column col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
 							<div>
 								<img src={require('../img/logo.svg')} alt=""/>
 							</div>
@@ -47,7 +42,7 @@ class Dashboard extends Component {
 									render={({errors, status, touched}) => (
 										<Form aria-label="Generate pairs form">
 											<div className="form-group">
-												<label htmlFor="names">Even number of names</label>
+												<label htmlFor="names">Even your names</label>
 												<Field name="names" type="text" label="Names" id="names"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
 											</div>
@@ -78,26 +73,8 @@ class Dashboard extends Component {
 	}
 
 	generateRandomPairs = (fields) => {
- 		let pairs = [];
-		const allNames = fields.names.split(NAME_SEPARATOR);
-
-		for (let i = 0; i < allNames.length; i++) {
-			for (let j = i + 1; j < allNames.length; j++) {
-				pairs.push({firstPerson: allNames[i].toLowerCase(), secondPerson: allNames[j].toLowerCase()});
-			}
-		}
-		this.shuffle(pairs);
+		let pairs = shuffle(generateUniquePairs(fields));
 		this.updateStatePairs(pairs);
-	}
-
-	shuffle(pairs) {
-		for (let i = 0; i < pairs.length; i++) {
-			const j = Math.floor(Math.random() * i);
-			let temp = pairs[i];
-			pairs[i] = pairs[j];
-			pairs[j] = temp;
-		}
-		return pairs;
 	}
 
 	updateStatePairs(pairs) {
