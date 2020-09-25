@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../styles/App.scss';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
-import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, WEBSITE_TITLE} from "../utils/constants";
+import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, NAMES_ERROR_MSG, WEBSITE_TITLE} from "../utils/constants";
 
 class Dashboard extends Component {
 
@@ -24,7 +24,7 @@ class Dashboard extends Component {
 									}}
 									validationSchema={Yup.object().shape({
 										names: Yup.array()
-											.required('Adding names is required of course'),
+											.required({NAMES_ERROR_MSG}),
 									})}
 									onSubmit={fields => {}}
 									render={({errors, status, touched}) => (
