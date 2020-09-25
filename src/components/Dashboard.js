@@ -10,6 +10,7 @@ import {
 	NAMES_ERROR_MSG,
 	WEBSITE_TITLE
 } from "../utils/constants";
+import ShowPairs from "./ShowPairs";
 
 const validation =
 	Yup.object().shape({
@@ -19,13 +20,19 @@ const validation =
 
 class Dashboard extends Component {
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			pairs: [],
+		}
+	}
+
 	render() {
 		return (
 			<main>
 				<div className="container-fluid">
 					<div className="row">
-						<div
-							className="d-flex flex-column col-sm-6 login-section-wrapper align-items-center justify-content-center">
+						<div className="d-flex flex-column col-sm-6 login-section-wrapper align-items-center justify-content-center">
 							<div>
 								<img src={require('../img/logo.svg')} alt="" className="logo"/>
 							</div>
@@ -43,8 +50,6 @@ class Dashboard extends Component {
 												<label htmlFor="names">Even number of names</label>
 												<Field name="names" type="text" label="Names" id="names"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
-												<ErrorMessage name="names" component="div"
-															  className="invalid-feedback"/>
 											</div>
 											<div className="form-group">
 												<button type="submit" className="btn btn-block action-btn"
@@ -64,6 +69,8 @@ class Dashboard extends Component {
 							</div>
 						</div>
 						<div className="col-sm-6 px-0 d-none d-sm-block">
+							<ShowPairs {...this.props} pairs={this.state.pairs}/>
+
 							<a href="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
 							   target="_blank" rel="noopener noreferrer">
 								<img
@@ -78,7 +85,7 @@ class Dashboard extends Component {
 	}
 
 	generateRandomPairs = (fields) => {
-		let pairs = [];
+ 		let pairs = [];
 		const allNames = fields.names.split(NAME_SEPARATOR);
 
 		for (let i = 0; i < allNames.length; i++) {
@@ -87,7 +94,7 @@ class Dashboard extends Component {
 			}
 		}
 		this.shuffle(pairs);
-		return pairs;
+		this.updateStatePairs(pairs);
 	}
 
 	shuffle(pairs) {
@@ -98,6 +105,10 @@ class Dashboard extends Component {
 			pairs[j] = temp;
 		}
 		return pairs;
+	}
+
+	updateStatePairs(pairs) {
+		this.setState({pairs: pairs})
 	}
 }
 
