@@ -48,11 +48,11 @@ class Dashboard extends Component {
 			<main>
 				<div className="row">
 					<div
-						className="d-flex col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
+						className="d-flex col-md-6 col-sm-12 dashboard-section-wrapper align-items-center justify-content-center">
 						<div>
 							<img src={require('../img/logo.svg')} alt=""/>
 						</div>
-						<div className="dashboard-wrapper">
+						<div className="dashboard-wrapper p-3">
 							<h1 className="login-title">{WEBSITE_TITLE}</h1>
 							<Formik id="generateForm"
 									initialValues={{
@@ -85,7 +85,7 @@ class Dashboard extends Component {
 							<span>{LOCATION_OF_OWNER_OF_APP}</span>
 						</div>
 					</div>
-					<div className="col-sm-6 px-0 d-none d-sm-block">
+					<div className="d-flex col-md-6 col-sm-12 align-items-center justify-content-center">
 						<ShowPairs {...this.props} pairs={this.state.pairs}/>
 					</div>
 				</div>
