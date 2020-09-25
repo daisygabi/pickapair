@@ -2,6 +2,8 @@
   "name": "pickapair",
   "version": "0.1.0",
   "private": true,
+  "author": "GB",
+  "description": "Generate unique pair of names. You can use this for playing games, pair programming or support systems.",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
