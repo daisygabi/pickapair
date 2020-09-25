@@ -2,9 +2,18 @@ import React, {Component} from 'react';
 import '../styles/App.scss';
 import {Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
-import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, NAMES_ERROR_MSG, WEBSITE_TITLE} from "../utils/constants";
+import {
+	GENERATE_BUTTON,
+	GENERATED_PAIR_VALUES,
+	INPUT_TITLE,
+	LOCATION_OF_OWNER_OF_APP,
+	MADE_WITH,
+	NAMES_ERROR_MSG,
+	WEBSITE_TITLE
+} from "../utils/constants";
 import ShowPairs from "./ShowPairs";
 import {generateUniquePairs, shuffle} from "./utils/GeneratePairs";
+import {LocalStorageService} from "../services/LocalStorageService";
 
 const validation =
 	Yup.object().shape({
@@ -14,10 +23,21 @@ const validation =
 
 class Dashboard extends Component {
 
+	localStorageService = null;
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			pairs: [],
+		}
+	}
+
+	componentDidMount() {
+		let previouslyGeneratedPairs = this.getPreviouslyGeneratedPairs();
+		if (previouslyGeneratedPairs.length > 0) {
+			this.setState({
+				pairs: JSON.parse(previouslyGeneratedPairs),
+			})
 		}
 	}
 
@@ -35,7 +55,7 @@ class Dashboard extends Component {
 								<h1 className="login-title">{WEBSITE_TITLE}</h1>
 								<Formik id="generateForm"
 									initialValues={{
-										names: '',
+										names: this.getInitialInputValues(),
 									}}
 									validationSchema={validation}
 									onSubmit={fields => {this.generateRandomPairs(fields);}}
@@ -75,10 +95,31 @@ class Dashboard extends Component {
 	generateRandomPairs = (fields) => {
 		let pairs = shuffle(generateUniquePairs(fields));
 		this.updateStatePairs(pairs);
+
+		// Save locally for recurrent user
+		this._getLocalStorageService().saveItemToLocalStorage(INPUT_TITLE, fields.names);
+		this._getLocalStorageService().saveItemToLocalStorage(GENERATED_PAIR_VALUES, JSON.stringify(pairs));
 	}
 
 	updateStatePairs(pairs) {
-		this.setState({pairs: pairs})
+		this.setState({pairs: pairs}, () => console.log("pairs were set: ", this.state.pairs))
+	}
+
+	getInitialInputValues() {
+		return this._getLocalStorageService().retrieveItemFromLocalStorage(INPUT_TITLE) ?
+			this._getLocalStorageService().retrieveItemFromLocalStorage(INPUT_TITLE) : '';
+	}
+
+	getPreviouslyGeneratedPairs() {
+		return this._getLocalStorageService().retrieveItemFromLocalStorage(GENERATED_PAIR_VALUES) ?
+			this._getLocalStorageService().retrieveItemFromLocalStorage(GENERATED_PAIR_VALUES) : [];
+	}
+
+	_getLocalStorageService() {
+		if (!this.localStorageService) {
+			this.localStorageService = new LocalStorageService();
+		}
+		return this.localStorageService;
 	}
 }
 
