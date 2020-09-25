@@ -1,0 +1,36 @@
+$xs: 576px;
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+$dimensions: (xs: $xs, sm: $sm, md: $md, lg: $lg);
+$main-containers-padding: 0.5rem;
+$default-padding: 2rem;
+$inside-default-padding: 5rem;
+
+$font-size-sm: 1rem;
+$font-size-md: 1.3rem;
+$font-sizes: (sm: $font-size-sm, md: $font-size-md);
+
+$background-title: antiquewhite;
+$background-light: whitesmoke;
+$background-tag: palegreen;
+$background-data-container: #ebeef1;
+$background-post-block: white;
+$background-draft-post: #4c89d0;
+$width-post-block:320px;
+$height-post-block:350px;
+$padding-post-block: 0.8rem;
+$padding-right-post-block: 10px;
+$light-text-color:  white;
+$background-light-color: white;
+
+$text-color: black;
+$background-color: white;
+$font-family-base: "Karla", sans-serif;
+$dashboard-used-color-blue: #7C7FB0;
+$dashboard-used-text-color-blue: #bfb8be;
+$highlight-background-primary-action-button: #A6A9E0;
+$highlight-color: #A6A9E0;
+$menu_items_background: #c3be40;
+
+$padding-right-post-block: 10px;
