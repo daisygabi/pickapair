@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/App.scss';
-import {ErrorMessage, Field, Form, Formik} from 'formik';
+import {Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {
 	GENERATE_BUTTON,
@@ -32,11 +32,11 @@ class Dashboard extends Component {
 			<main>
 				<div className="container-fluid">
 					<div className="row">
-						<div className="d-flex flex-column col-sm-6 login-section-wrapper align-items-center justify-content-center">
+						<div className="d-flex flex-column col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
 							<div>
-								<img src={require('../img/logo.svg')} alt="" className="logo"/>
+								<img src={require('../img/logo.svg')} alt=""/>
 							</div>
-							<div className="mt-5 login-wrapper">
+							<div className="mt-5 dashboard-wrapper">
 								<h1 className="login-title">{WEBSITE_TITLE}</h1>
 								<Formik
 									initialValues={{
@@ -70,13 +70,6 @@ class Dashboard extends Component {
 						</div>
 						<div className="col-sm-6 px-0 d-none d-sm-block">
 							<ShowPairs {...this.props} pairs={this.state.pairs}/>
-
-							<a href="https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-							   target="_blank" rel="noopener noreferrer">
-								<img
-									src={"https://images.unsplash.com/photo-1461632830798-3adb3034e4c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
-									alt="simple aired pantry" className="login-img"/>
-							</a>
 						</div>
 					</div>
 				</div>
