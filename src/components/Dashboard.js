@@ -16,6 +16,7 @@ const validation =
 		names: Yup.string()
 			.required({NAMES_ERROR_MSG}),
 	});
+
 class Dashboard extends Component {
 
 	render() {
@@ -35,7 +36,7 @@ class Dashboard extends Component {
 										names: '',
 									}}
 									validationSchema={validation}
-									onSubmit={fields => {this.generatePairs(fields);}}
+									onSubmit={fields => {this.generateRandomPairs(fields);}}
 									render={({errors, status, touched}) => (
 										<Form aria-label="Generate pairs form">
 											<div className="form-group">
@@ -76,8 +77,27 @@ class Dashboard extends Component {
 		);
 	}
 
-	generatePairs = (fields) => {
+	generateRandomPairs = (fields) => {
+		let pairs = [];
 		const allNames = fields.names.split(NAME_SEPARATOR);
+
+		for (let i = 0; i < allNames.length; i++) {
+			for (let j = i + 1; j < allNames.length; j++) {
+				pairs.push({firstPerson: allNames[i].toLowerCase(), secondPerson: allNames[j].toLowerCase()});
+			}
+		}
+		this.shuffle(pairs);
+		return pairs;
+	}
+
+	shuffle(pairs) {
+		for (let i = 0; i < pairs.length; i++) {
+			const j = Math.floor(Math.random() * i);
+			let temp = pairs[i];
+			pairs[i] = pairs[j];
+			pairs[j] = temp;
+		}
+		return pairs;
 	}
 }
 
