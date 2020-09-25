@@ -40,12 +40,6 @@ code {
       width: 100%;
     }
 
-    label {
-      font-size: 14px;
-      font-weight: bold;
-      color: #b0adad;
-    }
-
     .form-control {
       border: none;
       border-bottom: 1px solid #e7e7e7;
@@ -75,30 +69,10 @@ code {
         color: #000;
       }
     }
-
-    &-footer-text {
-      font-size: 16px;
-      color: #000;
-      margin-bottom: 0;
-    }
-  }
-
-  &-title {
-    font-size: 30px;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 25px;
-  }
-
-  &-img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    object-position: left;
   }
 }
 
-.post-block {
+.info-block {
   display: inline-flex;
   width: $width-post-block;
   height: $height-post-block;
@@ -108,32 +82,4 @@ code {
   border-radius: 0.7rem;
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
   background: $background-post-block;
-
-  &--title {
-    text-align: start;
-    font-weight: bold;
-  }
-
-  &--preview {
-    font-size: small;
-  }
-
-  &--date {
-    font-size: small;
-    color: gray;
-  }
-
-  &--draft-title {
-    color: $light-text-color;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-  }
-
-  &--draft {
-    background: #7FCFD6 !important;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 0.8rem;
-    -khtml-border-radius: 10px; /* for old Konqueror browsers */
-  }
 }

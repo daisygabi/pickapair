@@ -44,16 +44,15 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<main>
-				<div className="container-fluid">
-					<div className="row">
-						<div
-							className="d-flex flex-column col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
-							<div>
-								<img src={require('../img/logo.svg')} alt=""/>
-							</div>
-							<div className="mt-5 dashboard-wrapper">
-								<h1 className="login-title">{WEBSITE_TITLE}</h1>
-								<Formik id="generateForm"
+				<div className="row">
+					<div
+						className="d-flex col-sm-6 dashboard-section-wrapper align-items-center justify-content-center">
+						<div>
+							<img src={require('../img/logo.svg')} alt=""/>
+						</div>
+						<div className="dashboard-wrapper">
+							<h1 className="login-title">{WEBSITE_TITLE}</h1>
+							<Formik id="generateForm"
 									initialValues={{
 										names: this.getInitialInputValues(),
 									}}
@@ -73,19 +72,18 @@ class Dashboard extends Component {
 											</div>
 										</Form>
 									)}
-								/>
-								<span className="">{MADE_WITH}</span>
-								<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
-									 fill="red" xmlns="http://www.w3.org/2000/svg">
-									<path fillRule="evenodd"
-										  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-								</svg>
-								<span>{LOCATION_OF_OWNER_OF_APP}</span>
-							</div>
+							/>
+							<span className="">{MADE_WITH}</span>
+							<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
+								 fill="red" xmlns="http://www.w3.org/2000/svg">
+								<path fillRule="evenodd"
+									  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+							</svg>
+							<span>{LOCATION_OF_OWNER_OF_APP}</span>
 						</div>
-						<div className="col-sm-6 px-0 d-none d-sm-block">
-							<ShowPairs {...this.props} pairs={this.state.pairs}/>
-						</div>
+					</div>
+					<div className="col-sm-6 px-0 d-none d-sm-block">
+						<ShowPairs {...this.props} pairs={this.state.pairs}/>
 					</div>
 				</div>
 			</main>
@@ -102,7 +100,7 @@ class Dashboard extends Component {
 	}
 
 	updateStatePairs(pairs) {
-		this.setState({pairs: pairs}, () => console.log("pairs were set: ", this.state.pairs))
+		this.setState({pairs: pairs});
 	}
 
 	getInitialInputValues() {
