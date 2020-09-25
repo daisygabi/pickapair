@@ -2,7 +2,8 @@ export const ERROR_TITLE = "Unsuccessful Action";
 export const WEBSITE_TITLE = "Add names using ';' as separator";
 
 export const GENERATE_BUTTON = "Generate Pairs";
-export const NAMES_ERROR_MSG = "Adding names is required of course";
+export const NAMES_ERROR_MSG = "Adding data is required";
+export const NOT_ENOUGH_DATA_MSG = "Not enough data";
 
 export const NAME_SEPARATOR = ";";
 export const INPUT_TITLE = "Input";
