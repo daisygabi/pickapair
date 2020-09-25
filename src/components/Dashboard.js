@@ -4,7 +4,7 @@ import {Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, NAMES_ERROR_MSG, WEBSITE_TITLE} from "../utils/constants";
 import ShowPairs from "./ShowPairs";
-import {generateUniquePairs, shuffle} from "./utils/generateHelper";
+import {generateUniquePairs, shuffle} from "./utils/GeneratePairs";
 
 const validation =
 	Yup.object().shape({
