@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/App.scss';
-import {Field, Form, Formik} from 'formik';
+import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
 import {
 	GENERATE_BUTTON,
@@ -9,6 +9,7 @@ import {
 	LOCATION_OF_OWNER_OF_APP,
 	MADE_WITH,
 	NAMES_ERROR_MSG,
+	NOT_ENOUGH_DATA_MSG,
 	WEBSITE_TITLE
 } from "../utils/constants";
 import ShowPairs from "./ShowPairs";
@@ -18,7 +19,8 @@ import {LocalStorageService} from "../services/LocalStorageService";
 const validation =
 	Yup.object().shape({
 		names: Yup.string()
-			.required({NAMES_ERROR_MSG}),
+			.min(2, NOT_ENOUGH_DATA_MSG)
+			.required(NAMES_ERROR_MSG),
 	});
 
 class Dashboard extends Component {
@@ -64,6 +66,7 @@ class Dashboard extends Component {
 												<label htmlFor="names">Even your names</label>
 												<Field name="names" type="text" label="Names" id="names"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
+												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
 											</div>
 											<div className="form-group">
 												<button type="submit" className="btn btn-block action-btn"
