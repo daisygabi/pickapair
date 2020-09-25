@@ -2,8 +2,20 @@ import React, {Component} from 'react';
 import '../styles/App.scss';
 import {ErrorMessage, Field, Form, Formik} from 'formik';
 import * as Yup from 'yup';
-import {GENERATE_BUTTON, LOCATION_OF_OWNER_OF_APP, MADE_WITH, NAMES_ERROR_MSG, WEBSITE_TITLE} from "../utils/constants";
+import {
+	GENERATE_BUTTON,
+	LOCATION_OF_OWNER_OF_APP,
+	MADE_WITH,
+	NAME_SEPARATOR,
+	NAMES_ERROR_MSG,
+	WEBSITE_TITLE
+} from "../utils/constants";
 
+const validation =
+	Yup.object().shape({
+		names: Yup.string()
+			.required({NAMES_ERROR_MSG}),
+	});
 class Dashboard extends Component {
 
 	render() {
@@ -22,11 +34,8 @@ class Dashboard extends Component {
 									initialValues={{
 										names: '',
 									}}
-									validationSchema={Yup.object().shape({
-										names: Yup.array()
-											.required({NAMES_ERROR_MSG}),
-									})}
-									onSubmit={fields => {}}
+									validationSchema={validation}
+									onSubmit={fields => {this.generatePairs(fields);}}
 									render={({errors, status, touched}) => (
 										<Form aria-label="Generate pairs form">
 											<div className="form-group">
@@ -65,6 +74,10 @@ class Dashboard extends Component {
 				</div>
 			</main>
 		);
+	}
+
+	generatePairs = (fields) => {
+		const allNames = fields.names.split(NAME_SEPARATOR);
 	}
 }
 
