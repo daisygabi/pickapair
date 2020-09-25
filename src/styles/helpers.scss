@@ -1,0 +1,45 @@
+@import "variables";
+
+@each $size-name, $size in $dimensions {
+  .hidden-#{$size-name} {
+    @media (max-width: $size) {
+      visibility: hidden;
+      display: none;
+    }
+  }
+}
+
+@each $font-size-name, $font-size in $font-sizes {
+  .font-size-#{$font-size-name} {
+    font-size: $font-size;
+  }
+}
+
+.main-container {
+  @media (min-width: $md) {
+    padding: $main-containers-padding;
+  }
+}
+
+.main-focus-container {
+  @media (min-width: $md) {
+    padding: $main-containers-padding;
+  }
+  @media (max-width: $sm) {
+    padding: $default-padding;
+  }
+}
+
+.header-text {
+  @media (min-width: $md) {
+    margin-left: 7rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: $sm) {
+    margin-left: 0 !important;
+  }
+}
+
+.background-title {
+  background: $background-title;
+}

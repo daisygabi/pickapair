@@ -14,12 +14,16 @@
 	"formik": "^2.1.4",
 	"yup": "^0.29.3",
 	"enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2"
+    "enzyme-adapter-react-16": "^1.15.2",
+    "node-sass": "^4.14.0",
+    "react-router-dom": "^5.1.2",
+    "env-cmd": "^8.0.2",
+    "bootstrap": "^4.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "env-cmd src/config/.env.local react-scripts start",
+    "build": "env-cmd src/config/.env.production react-scripts build",
+    "test": "react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,6 +33,7 @@
     "production": [
       ">0.2%",
       "not dead",
+      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
