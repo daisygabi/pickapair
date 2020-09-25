@@ -6,12 +6,11 @@ class ShowPairs extends Component {
 	render() {
 		return (
 			<div className="col-12">
-				{this.props.pairs ? this.props.pairs.map(item => {
-					return <div className="post-block pr-3 pl-3 m-3 flex-column shadow" key={item.id}>
-						<p className="post-block--title mt-3">{item.firstPerson} : </p>
-						<p className="post-block--title mt-3">{item.secondPerson}</p>
+				{this.props.pairs.length > 0 ? this.props.pairs.map((item, key) => {
+					return <div className="post-block p-3 m-3 flex-column shadow" key={key}>
+						<p className="d-flex align-items-center justify-content-center">{item.firstPerson} + {item.secondPerson}</p>
 					</div>
-				}) : ""}
+				}) : <div><img src={require('../img/undraw_pair.svg')} alt="" className="p-3 m-3"/></div>}
 			</div>
 		);
 	}

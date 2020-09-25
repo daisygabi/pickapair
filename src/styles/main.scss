@@ -14,7 +14,7 @@ code {
   monospace;
 }
 
-.login {
+.dashboard {
   &-section-wrapper {
     display: flex;
     flex-direction: column;
@@ -76,18 +76,6 @@ code {
       }
     }
 
-    a.forgot-password-link {
-      color: #080808;
-      font-size: 14px;
-      text-decoration: underline;
-      display: inline-block;
-      margin-bottom: 54px;
-
-      @media (max-width: 575px) {
-        margin-bottom: 16px;
-      }
-    }
-
     &-footer-text {
       font-size: 16px;
       color: #000;
@@ -107,5 +95,45 @@ code {
     height: 100vh;
     object-fit: cover;
     object-position: left;
+  }
+}
+
+.post-block {
+  display: inline-flex;
+  width: $width-post-block;
+  height: $height-post-block;
+  border: 1px solid $dashboard-used-text-color-blue;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 0.7rem;
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  background: $background-post-block;
+
+  &--title {
+    text-align: start;
+    font-weight: bold;
+  }
+
+  &--preview {
+    font-size: small;
+  }
+
+  &--date {
+    font-size: small;
+    color: gray;
+  }
+
+  &--draft-title {
+    color: $light-text-color;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &--draft {
+    background: #7FCFD6 !important;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 0.8rem;
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */
   }
 }
