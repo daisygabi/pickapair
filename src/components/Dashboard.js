@@ -33,7 +33,7 @@ class Dashboard extends Component {
 							</div>
 							<div className="mt-5 dashboard-wrapper">
 								<h1 className="login-title">{WEBSITE_TITLE}</h1>
-								<Formik
+								<Formik id="generateForm"
 									initialValues={{
 										names: '',
 									}}
