@@ -61,7 +61,7 @@ class Dashboard extends Component {
 									onSubmit={fields => {this.generateRandomPairs(fields);}}
 									render={({errors, status, touched}) => (
 										<Form aria-label="A form that asks for names as input and generates unique pairs">
-											<div className="form-group" tabIndex={1}>
+											<div className="form-group">
 												<label htmlFor="names">{NAMES_TITLE}</label>
 												<Field name="names" type="text" label="Names" id="names" aria-label="Write names with semicolon between them"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
@@ -70,20 +70,20 @@ class Dashboard extends Component {
 											<div className="form-group">
 												<button type="submit" className="btn btn-block action-btn"
 														aria-label="click to generate unique pairs"
-														id="generateBtn" tabIndex={2}>{GENERATE_BUTTON}</button>
+														id="generateBtn">{GENERATE_BUTTON}</button>
 											</div>
 										</Form>
 									)}
 							/>
-							<span className="">{MADE_WITH}</span>
+							<span aria-label="made with love">{MADE_WITH}</span>
 							<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
-								 fill="red" xmlns="http://www.w3.org/2000/svg" role="img">
+								 fill="red" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="love">
 								<title>Love</title>
 								<desc>Red heart</desc>
 								<path fillRule="evenodd" role="presentation"
 									  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 							</svg>
-							<span>{LOCATION_OF_OWNER_OF_APP}</span>
+							<span aria-label="in Sibiu, Romania">{LOCATION_OF_OWNER_OF_APP}</span>
 						</div>
 					</div>
 					<div className="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
