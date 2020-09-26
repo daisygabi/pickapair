@@ -16,35 +16,17 @@ code {
 
 .dashboard {
   &-section-wrapper {
-    display: flex;
     flex-direction: column;
-    padding: 68px 100px;
-    background-color: #fff;
-
-    @media (max-width: 991px) {
-      padding-left: 50px;
-      padding-right: 50px;
-    }
-    @media (max-width: 575px) {
-      padding-top: 20px;
-      padding-bottom: 20px;
-      min-height: 100vh;
-    }
+    padding: 1rem;
   }
 
   &-wrapper {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-
-    @media (max-width: 575px) {
-      width: 100%;
-    }
 
     .form-control {
       border: none;
       border-bottom: 1px solid #e7e7e7;
       border-radius: 0;
-      padding: 9px 5px;
+      padding: 2px 5px;
       min-height: 40px;
       font-size: 18px;
       font-weight: normal;
@@ -73,13 +55,9 @@ code {
 }
 
 .info-block {
-  display: inline-flex;
   width: $width-post-block;
   height: $height-post-block;
   border: 1px solid $dashboard-used-text-color-blue;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 0.7rem;
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
   background: $background-post-block;
 }
