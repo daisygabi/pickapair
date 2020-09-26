@@ -8,7 +8,7 @@ import {
 	INPUT_TITLE,
 	LOCATION_OF_OWNER_OF_APP,
 	MADE_WITH,
-	NAMES_ERROR_MSG,
+	NAMES_ERROR_MSG, NAMES_TITLE,
 	NOT_ENOUGH_DATA_MSG,
 	WEBSITE_TITLE
 } from "../utils/constants";
@@ -49,10 +49,10 @@ class Dashboard extends Component {
 				<div className="row m-3">
 					<div className="d-flex col-md-6 col-sm-12 dashboard-section-wrapper align-items-center justify-content-center">
 						<div className="pt-3">
-							<img src={require('../img/logo.svg')} alt=""/>
+							<img src={require('../img/logo.svg')} alt="pick a pair logo" title="logo of the application"/>
 						</div>
 						<div className="dashboard-wrapper mt-5">
-							<h1>{WEBSITE_TITLE}</h1>
+							<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
 							<Formik id="generateForm"
 									initialValues={{
 										names: this.getInitialInputValues(),
@@ -60,16 +60,16 @@ class Dashboard extends Component {
 									validationSchema={validation}
 									onSubmit={fields => {this.generateRandomPairs(fields);}}
 									render={({errors, status, touched}) => (
-										<Form aria-label="Generate pairs form">
+										<Form aria-label="A form that asks for names as input and generates unique pairs">
 											<div className="form-group">
-												<label htmlFor="names">Even your names</label>
+												<label htmlFor="names">{NAMES_TITLE}</label>
 												<Field name="names" type="text" label="Names" id="names"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
 												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
 											</div>
 											<div className="form-group">
 												<button type="submit" className="btn btn-block action-btn"
-														aria-label="generate pairs"
+														aria-label="button to generate unique pairs"
 														id="generateBtn">{GENERATE_BUTTON}</button>
 											</div>
 										</Form>
@@ -77,8 +77,10 @@ class Dashboard extends Component {
 							/>
 							<span className="">{MADE_WITH}</span>
 							<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
-								 fill="red" xmlns="http://www.w3.org/2000/svg">
-								<path fillRule="evenodd"
+								 fill="red" xmlns="http://www.w3.org/2000/svg" role="img">
+								<title>Love</title>
+								<desc>Red heart</desc>
+								<path fillRule="evenodd" role="presentation"
 									  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 							</svg>
 							<span>{LOCATION_OF_OWNER_OF_APP}</span>
