@@ -51,7 +51,7 @@ class Dashboard extends Component {
 						<div className="pt-3">
 							<img src={require('../img/logo.svg')} alt="pick a pair logo" title="logo of the application"/>
 						</div>
-						<div className="dashboard-wrapper mt-5">
+						<div className="dashboard-wrapper mt-2">
 							<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
 							<Formik id="generateForm"
 									initialValues={{
@@ -61,16 +61,16 @@ class Dashboard extends Component {
 									onSubmit={fields => {this.generateRandomPairs(fields);}}
 									render={({errors, status, touched}) => (
 										<Form aria-label="A form that asks for names as input and generates unique pairs">
-											<div className="form-group">
+											<div className="form-group" tabIndex={1}>
 												<label htmlFor="names">{NAMES_TITLE}</label>
-												<Field name="names" type="text" label="Names" id="names"
+												<Field name="names" type="text" label="Names" id="names" aria-label="Write names with semicolon between them"
 													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
 												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
 											</div>
 											<div className="form-group">
 												<button type="submit" className="btn btn-block action-btn"
-														aria-label="button to generate unique pairs"
-														id="generateBtn">{GENERATE_BUTTON}</button>
+														aria-label="click to generate unique pairs"
+														id="generateBtn" tabIndex={2}>{GENERATE_BUTTON}</button>
 											</div>
 										</Form>
 									)}
