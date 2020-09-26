@@ -1,6 +1,5 @@
-export const ERROR_TITLE = "Unsuccessful Action";
 export const WEBSITE_TITLE = "Add names using semicolon ';' as separator";
-export const NAMES_TITLE = "Names";
+export const NAMES_TITLE = "Input";
 
 export const GENERATE_BUTTON = "Generate Pairs";
 export const NAMES_ERROR_MSG = "Adding data is required";
