@@ -46,14 +46,13 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<main>
-				<div className="row">
-					<div
-						className="d-flex col-md-6 col-sm-12 dashboard-section-wrapper align-items-center justify-content-center">
-						<div>
+				<div className="row m-3">
+					<div className="d-flex col-md-6 col-sm-12 dashboard-section-wrapper align-items-center justify-content-center">
+						<div className="pt-3">
 							<img src={require('../img/logo.svg')} alt=""/>
 						</div>
-						<div className="dashboard-wrapper p-3">
-							<h1 className="login-title">{WEBSITE_TITLE}</h1>
+						<div className="dashboard-wrapper mt-5">
+							<h1>{WEBSITE_TITLE}</h1>
 							<Formik id="generateForm"
 									initialValues={{
 										names: this.getInitialInputValues(),
@@ -85,7 +84,7 @@ class Dashboard extends Component {
 							<span>{LOCATION_OF_OWNER_OF_APP}</span>
 						</div>
 					</div>
-					<div className="d-flex col-md-6 col-sm-12 align-items-center justify-content-center">
+					<div className="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
 						<ShowPairs {...this.props} pairs={this.state.pairs}/>
 					</div>
 				</div>
