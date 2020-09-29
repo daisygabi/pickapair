@@ -10,4 +10,4 @@ export const INPUT_TITLE = "Input";
 export const GENERATED_PAIR_VALUES = "Generated pair values";
 
 export const MADE_WITH = "Made with ";
-export const LOCATION_OF_OWNER_OF_APP = " in Sibiu, RO.";
+export const LOCATION_OF_OWNER_OF_APP = " in Romania";
