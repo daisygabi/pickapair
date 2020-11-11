@@ -45,10 +45,10 @@ class Dashboard extends Component {
 
 	render() {
 		return (
-			<main>
-				<div className="row m-3">
-					<div className="d-flex col-md-6 col-sm-12 dashboard-section-wrapper align-items-center justify-content-center">
-						<div className="pt-3">
+			<main className="d-flex flex-column align-items-center justify-content-center vh-100 ml-3 mr-3">
+				<div className="row">
+					<div className="d-flex col-md-6 col-sm-12 flex-column dashboard-section-wrapper align-items-center justify-content-center">
+						<div className="">
 							<img src={require('../img/logo.svg')} alt="pick a pair logo" title="logo of the application"/>
 						</div>
 						<div className="dashboard-wrapper mt-2">

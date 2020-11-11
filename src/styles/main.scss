@@ -16,12 +16,10 @@ code {
 
 .dashboard {
   &-section-wrapper {
-    flex-direction: column;
     padding: 1rem;
   }
 
   &-wrapper {
-
     .form-control {
       border: none;
       border-bottom: 1px solid #e7e7e7;
