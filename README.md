@@ -5,6 +5,7 @@ It is completely free of any analytics and will remain like that.
 
 ![Pick a pair with generated values](pickapairwithresulst.PNG)
 
+![Pick a pair with generated values on mobile](pickapairmobile.PNG)
 
 ## Available Scripts
 
