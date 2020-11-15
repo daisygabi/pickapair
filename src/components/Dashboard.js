@@ -10,7 +10,8 @@ import {
 	MADE_WITH,
 	NAMES_ERROR_MSG,
 	NAMES_TITLE,
-	NOT_ENOUGH_DATA_MSG, RESET_BUTTON,
+	NOT_ENOUGH_DATA_MSG,
+	RESET_BUTTON,
 	WEBSITE_TITLE
 } from "../utils/constants";
 import ShowPairs from "./ShowPairs";
@@ -46,54 +47,62 @@ class Dashboard extends Component {
 
 	render() {
 		let resetBtn = '';
-		if(this.state.pairs.length > 0) {
-			resetBtn = <div><button type='submit' className='ml-3 btn reset-btn' aria-label='click to reset pairs'
-							onClick={() => this.resetValues()}>{RESET_BUTTON}</button></div>;
+		if (this.state.pairs.length > 0) {
+			resetBtn = <div>
+				<button type='submit' className='ml-3 btn reset-btn' aria-label='click to reset pairs'
+						onClick={() => this.resetValues()}>{RESET_BUTTON}</button>
+			</div>;
 		}
 		return (
-			<main className="d-flex flex-column align-items-center justify-content-center vh-100 ml-3 mr-3">
-				<div className="row">
-					<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center justify-content-center">
-						<div className="dashboard-wrapper">
-							<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
-							<Formik id="generateForm"
-									initialValues={{
-										names: this.getInitialInputValues(),
-									}}
-									validationSchema={validation}
-									onSubmit={fields => {this.generateRandomPairs(fields);}}
-									render={({errors, status, touched}) => (
-										<Form aria-label="A form that asks for names as input and generates unique pairs">
-											<div className="form-group mt-5">
-												<Field name="names" type="text" label="Names" id="names" aria-label="Write names with semicolon between them"
-													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}
-														placeholder={NAMES_TITLE}/>
-												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
-											</div>
-											<div className="d-flex align-items-center justify-content-end">
-												<button type="submit" className="btn action-btn"
-														aria-label="click to generate unique pairs"
-														id="generateBtn">{GENERATE_BUTTON}</button>
-												{resetBtn}
-											</div>
-										</Form>
-									)}
-							/>
-							<span aria-label="made with love">{MADE_WITH}</span>
-							<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
-								 fill="red" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="love">
-								<title>Love</title>
-								<desc>Red heart</desc>
-								<path fillRule="evenodd" role="presentation"
-									  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-							</svg>
-							<span aria-label="in Sibiu, Romania">{LOCATION_OF_OWNER_OF_APP}</span>
+			<main className="vh-100">
+				<section className="w-100 bg-info p-3">Analytics Free</section>
+				<section className="d-flex flex-column align-items-center justify-content-center m-3 pt-5">
+					<div className="row mt-5">
+						<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center">
+							<div className="dashboard-wrapper pt-5">
+								<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
+								<Formik id="generateForm"
+										initialValues={{
+											names: this.getInitialInputValues(),
+										}}
+										validationSchema={validation}
+										onSubmit={fields => {this.generateRandomPairs(fields);}}
+										render={({errors, status, touched}) => (
+											<Form
+												aria-label="A form that asks for names as input and generates unique pairs">
+												<div className="form-group mt-5">
+													<Field name="names" type="text" label="Names" id="names"
+														   aria-label="Write names with semicolon between them"
+														   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}
+														   placeholder={NAMES_TITLE}/>
+													<ErrorMessage name="names" component="div"
+																  className="invalid-feedback"/>
+												</div>
+												<div className="d-flex align-items-center justify-content-end">
+													<button type="submit" className="btn action-btn"
+															aria-label="click to generate unique pairs"
+															id="generateBtn">{GENERATE_BUTTON}</button>
+													{resetBtn}
+												</div>
+											</Form>
+										)}
+								/>
+								<span aria-label="made with love">{MADE_WITH}</span>
+								<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
+									 fill="red" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="love">
+									<title>Love</title>
+									<desc>Red heart</desc>
+									<path fillRule="evenodd" role="presentation"
+										  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+								</svg>
+								<span aria-label="in Sibiu, Romania">{LOCATION_OF_OWNER_OF_APP}</span>
+							</div>
+						</div>
+						<div className="col-md-5 col-sm-12 d-flex align-items-center justify-content-center">
+							<ShowPairs {...this.props} pairs={this.state.pairs}/>
 						</div>
 					</div>
-					<div className="col-md-5 col-sm-12 d-flex align-items-center justify-content-center">
-						<ShowPairs {...this.props} pairs={this.state.pairs}/>
-					</div>
-				</div>
+				</section>
 			</main>
 		);
 	}
@@ -121,7 +130,7 @@ class Dashboard extends Component {
 			this._getLocalStorageService().retrieveItemFromLocalStorage(GENERATED_PAIR_VALUES) : [];
 	}
 
-	resetValues () {
+	resetValues() {
 		this._getLocalStorageService().clear();
 		this.setState({pairs: []})
 	}

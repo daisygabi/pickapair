@@ -15,7 +15,6 @@ code {
 }
 
 .dashboard {
-  min-height: 10rem;
 
   &-section-wrapper {
     padding: 1rem;
@@ -54,7 +53,7 @@ code {
 
     .action-btn {
       padding: 0.5em 1em;
-      background-color: #5E9CF1;
+      background-color: $background-draft-post;
       border-radius: 0;
       font-size: 20px;
       font-weight: bold;
@@ -62,7 +61,7 @@ code {
       margin-bottom: 14px;
 
       &:hover {
-        border: 1px solid #5E9CF1;
+        border: 1px solid $background-draft-post;
         background-color: #fff;
         color: $background-draft-post;
       }
