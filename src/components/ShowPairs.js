@@ -12,7 +12,7 @@ class ShowPairs extends Component {
 									aria-label={item.firstPerson + " and " + item.secondPerson}>
 							<div className="d-flex align-items-center justify-content-center h-100"><span>{item.firstPerson} + {item.secondPerson}</span></div>
 						</div>
-					}) : <div className=" hidden-sm"><img src={require('../img/showcase.png')}
+					}) : <div className="hidden-sm"><img src={require('../img/showcase.png')}
 												   alt="initial image shown where are no results" title="default image when there are no results" className="col-12"/>
 					</div>}
 				</div>
