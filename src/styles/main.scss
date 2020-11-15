@@ -36,6 +36,22 @@ code {
       }
     }
 
+    .reset-btn {
+      padding: 0.5em 1em;
+      background-color: $highlight-color;
+      border-radius: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 14px;
+
+      &:hover {
+        border: 1px solid #5E9CF1;
+        background-color: #fff;
+        color: $background-draft-post;
+      }
+    }
+
     .action-btn {
       padding: 0.5em 1em;
       background-color: #5E9CF1;

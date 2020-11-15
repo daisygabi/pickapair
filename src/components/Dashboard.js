@@ -8,8 +8,9 @@ import {
 	INPUT_TITLE,
 	LOCATION_OF_OWNER_OF_APP,
 	MADE_WITH,
-	NAMES_ERROR_MSG, NAMES_TITLE,
-	NOT_ENOUGH_DATA_MSG,
+	NAMES_ERROR_MSG,
+	NAMES_TITLE,
+	NOT_ENOUGH_DATA_MSG, RESET_BUTTON,
 	WEBSITE_TITLE
 } from "../utils/constants";
 import ShowPairs from "./ShowPairs";
@@ -44,6 +45,11 @@ class Dashboard extends Component {
 	}
 
 	render() {
+		let resetBtn = '';
+		if(this.state.pairs.length > 0) {
+			resetBtn = <div><button type='submit' className='ml-3 btn reset-btn' aria-label='click to reset pairs'
+							onClick={() => this.resetValues()}>{RESET_BUTTON}</button></div>;
+		}
 		return (
 			<main className="d-flex flex-column align-items-center justify-content-center vh-100 ml-3 mr-3">
 				<div className="row">
@@ -68,6 +74,7 @@ class Dashboard extends Component {
 												<button type="submit" className="btn action-btn"
 														aria-label="click to generate unique pairs"
 														id="generateBtn">{GENERATE_BUTTON}</button>
+												{resetBtn}
 											</div>
 										</Form>
 									)}
@@ -112,6 +119,11 @@ class Dashboard extends Component {
 	getPreviouslyGeneratedPairs() {
 		return this._getLocalStorageService().retrieveItemFromLocalStorage(GENERATED_PAIR_VALUES) ?
 			this._getLocalStorageService().retrieveItemFromLocalStorage(GENERATED_PAIR_VALUES) : [];
+	}
+
+	resetValues () {
+		this._getLocalStorageService().clear();
+		this.setState({pairs: []})
 	}
 
 	_getLocalStorageService() {
