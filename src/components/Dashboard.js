@@ -47,11 +47,8 @@ class Dashboard extends Component {
 		return (
 			<main className="d-flex flex-column align-items-center justify-content-center vh-100 ml-3 mr-3">
 				<div className="row">
-					<div className="d-flex col-md-6 col-sm-12 flex-column dashboard-section-wrapper align-items-center justify-content-center">
-						<div className="">
-							<img src={require('../img/logo.svg')} alt="pick a pair logo" title="logo of the application"/>
-						</div>
-						<div className="dashboard-wrapper mt-2">
+					<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center justify-content-center">
+						<div className="dashboard-wrapper">
 							<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
 							<Formik id="generateForm"
 									initialValues={{
@@ -61,13 +58,13 @@ class Dashboard extends Component {
 									onSubmit={fields => {this.generateRandomPairs(fields);}}
 									render={({errors, status, touched}) => (
 										<Form aria-label="A form that asks for names as input and generates unique pairs">
-											<div className="form-group">
-												<label htmlFor="names">{NAMES_TITLE}</label>
+											<div className="form-group mt-5">
 												<Field name="names" type="text" label="Names" id="names" aria-label="Write names with semicolon between them"
-													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}/>
+													   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}
+														placeholder={NAMES_TITLE}/>
 												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
 											</div>
-											<div className="form-group">
+											<div className="">
 												<button type="submit" className="btn btn-block action-btn"
 														aria-label="click to generate unique pairs"
 														id="generateBtn">{GENERATE_BUTTON}</button>
@@ -86,7 +83,7 @@ class Dashboard extends Component {
 							<span aria-label="in Sibiu, Romania">{LOCATION_OF_OWNER_OF_APP}</span>
 						</div>
 					</div>
-					<div className="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+					<div className="col-md-5 col-sm-12 d-flex align-items-center justify-content-center">
 						<ShowPairs {...this.props} pairs={this.state.pairs}/>
 					</div>
 				</div>

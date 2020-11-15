@@ -7,6 +7,8 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #282727 !important;
+  color: white !important;
 }
 
 code {
@@ -15,6 +17,8 @@ code {
 }
 
 .dashboard {
+  min-height: 10rem;
+
   &-section-wrapper {
     padding: 1rem;
   }
@@ -30,23 +34,23 @@ code {
       font-weight: normal;
 
       &::placeholder {
-        color: #656363;
+        color: white;
       }
     }
 
     .action-btn {
-      padding: 13px 20px;
-      background-color: #fdbb28;
+      padding: 0.5em 1em;
+      background-color: #5E9CF1;
       border-radius: 0;
       font-size: 20px;
       font-weight: bold;
-      color: #000;
+      color: white;
       margin-bottom: 14px;
 
       &:hover {
-        border: 1px solid #fdbb28;
+        border: 1px solid #5E9CF1;
         background-color: #fff;
-        color: #000;
+        color: $background-draft-post;
       }
     }
   }
@@ -57,5 +61,4 @@ code {
   height: $height-post-block;
   border: 1px solid $dashboard-used-text-color-blue;
   border-radius: 0.7rem;
-  background: $background-post-block;
 }

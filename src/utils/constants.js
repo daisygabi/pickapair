@@ -1,5 +1,5 @@
 export const WEBSITE_TITLE = "Add names using semicolon ';' as separator";
-export const NAMES_TITLE = "Input";
+export const NAMES_TITLE = "Add your names";
 
 export const GENERATE_BUTTON = "Generate Pairs";
 export const NAMES_ERROR_MSG = "Adding data is required";
