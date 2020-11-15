@@ -1,6 +1,10 @@
 This purpose of this project is to help you generate unique pair of names, either for pair programming, support system, board games.
 It is completely free of any analytics and will remain like that.
 
+![Pick a pair initial state](pickapairfirst.PNG)
+
+![Pick a pair with generated values](pickapairwithresulst.PNG)
+
 
 ## Available Scripts
 
