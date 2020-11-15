@@ -64,8 +64,8 @@ class Dashboard extends Component {
 														placeholder={NAMES_TITLE}/>
 												<ErrorMessage name="names" component="div" className="invalid-feedback"/>
 											</div>
-											<div className="">
-												<button type="submit" className="btn btn-block action-btn"
+											<div className="d-flex align-items-center justify-content-end">
+												<button type="submit" className="btn action-btn"
 														aria-label="click to generate unique pairs"
 														id="generateBtn">{GENERATE_BUTTON}</button>
 											</div>
