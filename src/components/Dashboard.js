@@ -55,7 +55,7 @@ class Dashboard extends Component {
 		}
 		return (
 			<main className="vh-100">
-				<section className="w-100 bg-info p-3">Analytics Free</section>
+				<section className="w-100 header-line p-3">Analytics Free</section>
 				<section className="d-flex flex-column align-items-center justify-content-center m-3 pt-5">
 					<div className="row mt-5">
 						<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center">
@@ -70,7 +70,7 @@ class Dashboard extends Component {
 										render={({errors, status, touched}) => (
 											<Form
 												aria-label="A form that asks for names as input and generates unique pairs">
-												<div className="form-group mt-5">
+												<div className="form-group mt-5 shadow">
 													<Field name="names" type="text" label="Names" id="names"
 														   aria-label="Write names with semicolon between them"
 														   className={'form-control' + (errors.names && touched.names ? ' is-invalid' : '')}
