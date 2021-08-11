@@ -55,7 +55,7 @@ class Dashboard extends Component {
 		}
 		return (
 			<main className="vh-100">
-				<section className="w-100 header-line p-3">Analytics and tracking free</section>
+				<section className="w-100 header-line p-3 text-black-50">Analytics and tracking free</section>
 				<section className="d-flex flex-column align-items-center justify-content-center m-3 pt-5">
 					<div className="row mt-5">
 						<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center">
