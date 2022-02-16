@@ -55,7 +55,7 @@ class Dashboard extends Component {
 		}
 		return (
 			<main className="vh-100">
-				<section className="w-100 header-line p-3 text-black-50">Analytics and tracking free</section>
+				<section className="w-100 header-line p-2 text-dark">No analytics or tracking used.</section>
 				<section className="d-flex flex-column align-items-center justify-content-center m-3 pt-5">
 					<div className="row mt-5">
 						<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center">
@@ -95,7 +95,8 @@ class Dashboard extends Component {
 									<path fillRule="evenodd" role="presentation"
 										  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 								</svg>
-								<span aria-label="in Sibiu, Romania">{LOCATION_OF_OWNER_OF_APP}</span>
+								<span> </span>
+								<span aria-label="in Sibiu, Romania"><a href={"URL_OF_OWNER_OF_APP"}>{LOCATION_OF_OWNER_OF_APP}</a></span>
 							</div>
 						</div>
 						<div className="col-md-5 col-sm-12 d-flex align-items-center justify-content-center">

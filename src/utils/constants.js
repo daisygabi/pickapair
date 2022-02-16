@@ -1,4 +1,4 @@
-export const WEBSITE_TITLE = "Add names using semicolon ';' as separator";
+export const WEBSITE_TITLE = "Add names using semicolon(;) as separator";
 export const NAMES_TITLE = "Add your names";
 
 export const GENERATE_BUTTON = "Generate Pairs";
@@ -11,4 +11,5 @@ export const INPUT_TITLE = "Input";
 export const GENERATED_PAIR_VALUES = "Generated pair values";
 
 export const MADE_WITH = "Made with ";
-export const LOCATION_OF_OWNER_OF_APP = " in Romania";
+export const LOCATION_OF_OWNER_OF_APP = "gabriela.codes";
+export const URL_OF_OWNER_OF_APP = "https://gabriela.codes/";
