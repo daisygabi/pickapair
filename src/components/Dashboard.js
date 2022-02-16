@@ -11,7 +11,7 @@ import {
 	NAMES_ERROR_MSG,
 	NAMES_TITLE,
 	NOT_ENOUGH_DATA_MSG,
-	RESET_BUTTON,
+	RESET_BUTTON, URL_OF_OWNER_OF_APP,
 	WEBSITE_TITLE
 } from "../utils/constants";
 import ShowPairs from "./ShowPairs";
@@ -59,7 +59,7 @@ class Dashboard extends Component {
 				<section className="d-flex flex-column align-items-center justify-content-center m-3 pt-5">
 					<div className="row mt-5">
 						<div className="d-flex col-md-7 col-sm-12 flex-column dashboard-section-wrapper align-items-center">
-							<div className="dashboard-wrapper pt-5">
+							<div className="dashboard-wrapper pt-2">
 								<h1 aria-label="use semicolon as separator">{WEBSITE_TITLE}</h1>
 								<Formik id="generateForm"
 										initialValues={{
@@ -87,16 +87,18 @@ class Dashboard extends Component {
 											</Form>
 										)}
 								/>
-								<span aria-label="made with love">{MADE_WITH}</span>
-								<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
-									 fill="red" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="love">
-									<title>Love</title>
-									<desc>Red heart</desc>
-									<path fillRule="evenodd" role="presentation"
-										  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-								</svg>
-								<span> </span>
-								<span aria-label="in Sibiu, Romania"><a href={"URL_OF_OWNER_OF_APP"}>{LOCATION_OF_OWNER_OF_APP}</a></span>
+								<section className={"mt-5"}>
+									<span aria-label="made with love">{MADE_WITH}</span>
+									<svg className="bi bi-heart-fill" width="1em" height="1em" viewBox="0 0 16 16"
+										 fill="red" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="love">
+										<title>Love</title>
+										<desc>Red heart</desc>
+										<path fillRule="evenodd" role="presentation"
+											  d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+									</svg>
+									<span> </span>
+									<span aria-label={URL_OF_OWNER_OF_APP}><a href={URL_OF_OWNER_OF_APP}>{LOCATION_OF_OWNER_OF_APP}</a></span>
+								</section>
 							</div>
 						</div>
 						<div className="col-md-5 col-sm-12 d-flex align-items-center justify-content-center">
